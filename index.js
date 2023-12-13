@@ -6,6 +6,14 @@ const message = document.querySelector("#message");
 const send = document.querySelector("#send");
 const messageDiv = document.querySelector("#messageDiv");
 
+const configuration = {
+  iceServers: [
+    { urls: 'stun:stun.l.google.com:19302' },  // Example STUN server
+    { urls: 'turn:openrelay.metered.ca:80', username: 'openrelayproject', credential: 'openrelayproject' }
+  ]
+};
+
+
 
 let localPeer = null;
 let remotePeer = null;
@@ -14,7 +22,7 @@ let dataChannel = null;
 let offer = "";
 
 generateSDP.addEventListener("click", (e) => {
-  localPeer = new RTCPeerConnection();
+  localPeer = new RTCPeerConnection(configuration);
   dataChannel = localPeer.createDataChannel('chanel');
   if (dataChannel) {
     dataChannel.onmessage = e => {
@@ -42,7 +50,7 @@ acceptOffer.addEventListener("click", (e) => {
   if (offerEl.value) {
     offer = JSON.parse(offerEl.value);
     if (offer.type == "offer") {
-      remotePeer = new RTCPeerConnection();
+      remotePeer = new RTCPeerConnection(configuration);
       remotePeer.onicecandidate = e => {
         console.log("new ice candidate printing sdp", JSON.stringify(remotePeer.localDescription));
         sdpText.innerHTML = JSON.stringify(remotePeer.localDescription);
