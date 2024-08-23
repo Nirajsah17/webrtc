@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtime Chat</title>
+    <style>
+        :root {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --button-copy-bg: #4a148c;
+            --button-copy-hover: #6a1b9a;
+            --button-accept-bg: #1b5e20;
+            --button-accept-hover: #2e7d32;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .chat-container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        .chat-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 15px;
+            border: 1px solid var(--text-color);
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            color: var(--text-color);
+        }
+
+        .button-copy {
+            background-color: var(--button-copy-bg);
+        }
+
+        .button-copy:hover {
+            background-color: var(--button-copy-hover);
+        }
+
+        .button-accept {
+            background-color: var(--button-accept-bg);
+        }
+
+        .button-accept:hover {
+            background-color: var(--button-accept-hover);
+        }
+
+        .textarea-container {
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+            padding: 10px;
+            font-size: 16px;
+            resize: vertical;
+        }
+
+        .accept-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-title">Realtime Chat</div>
+        
+        <div class="button-container">
+            <button class="button button-copy">Copy Offer</button>
+        </div>
+        
+        <div class="textarea-container">
+            <textarea placeholder="Paste Answer here ..."></textarea>
+        </div>
+        
+        <div class="accept-container">
+            <button class="button button-accept">Accept Answer</button>
+        </div>
+    </div>
+</body>
+</html>
